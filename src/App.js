@@ -1,23 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import Pokemon from './Pokemon.js'
+import pokemonList from './pokeList.js'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Pokedex</h2>
+      <div className="cards">
+      {pokemonList.map(pokemon => (
+        <Pokemon name = {pokemon.name} image = {`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} type = {pokemon.type} exp = {pokemon.base_experience} />
+      ))}
+      </div>
     </div>
   );
 }
